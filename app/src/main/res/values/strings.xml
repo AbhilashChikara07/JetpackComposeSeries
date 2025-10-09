@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">JetpackComposeSeries</string>
+    <string name="jetpack_compose_text">JetPack Compose Series</string>
+</resources>
