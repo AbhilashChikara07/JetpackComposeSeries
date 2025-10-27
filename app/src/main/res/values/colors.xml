@@ -41,5 +41,6 @@
     <color name="gray_A200">#AAAAAA</color>
     <color name="gray_A400">#303030</color>
     <color name="gray_A700">#616161</color>
+    <color name="transparent">#00000000</color>
 
 </resources>

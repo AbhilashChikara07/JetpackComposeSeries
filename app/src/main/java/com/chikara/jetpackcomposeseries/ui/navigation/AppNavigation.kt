@@ -30,7 +30,7 @@ fun AppNavigation(authViewModel: AuthViewModel) {
                 slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Left)
             }
         ) {
-            SplashScreen(navController)
+            SplashScreen(navController, authViewModel)
         }
 
         // Login Screen

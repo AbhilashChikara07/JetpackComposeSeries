@@ -76,13 +76,16 @@ dependencies {
     // Compose
     implementation("androidx.compose.material:material:1.5.0")
 
+    // ✅ Compose + LiveData integration
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.0")
+
     // Lifecycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
 
-    // ⭐️ FIX: Replaced the incorrect `jvmstubs` dependency with the correct AndroidX Compose Navigation dependency.
-    implementation("androidx.navigation:navigation-compose:2.7.7") // ✅ CORRECT dependency
+    // Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.7")
 
     // Networking (Retrofit + OkHttp)
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -93,25 +96,8 @@ dependencies {
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    // implementation(libs.androidx.navigation.compose.jvmstubs) // ❌ REMOVED: This caused the "Implemented only in JetBrains fork" error.
 
-//    // Coil (image loading)
-//    implementation("io.coil-kt:coil-compose:2.3.0")
-//    implementation(libs.androidx.runtime.livedata)
-
-    // Tests
-//    testImplementation(libs.junit)
-//    androidTestImplementation(libs.androidx.junit)
-//    androidTestImplementation(libs.androidx.espresso.core)
-//    androidTestImplementation(platform(libs.androidx.compose.bom))
-//    androidTestImplementation(libs.androidx.ui.test.junit4)
-
-    // Debug
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
-    debugImplementation("androidx.compose.ui:ui-tooling:1.5.0")
-
-    // ✅ Firebase (compatible with Kotlin 2.0+)
+    // ✅ Firebase
     implementation(libs.firebase.auth)
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
@@ -120,13 +106,10 @@ dependencies {
     // Data Serializable
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
-//    testImplementation(libs.junit)
-//    androidTestImplementation(libs.androidx.junit)
-//    androidTestImplementation(libs.androidx.espresso.core)
-//    androidTestImplementation(platform(libs.androidx.compose.bom))
-//    androidTestImplementation(libs.androidx.ui.test.junit4)
-//    debugImplementation(libs.androidx.ui.tooling)
-//    debugImplementation(libs.androidx.ui.test.manifest)
+    // Debug
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
+    debugImplementation("androidx.compose.ui:ui-tooling:1.5.0")
 }
 
 //dependencies {

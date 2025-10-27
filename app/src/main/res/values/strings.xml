@@ -8,4 +8,9 @@
     <string name="createAccount">Create Account</string>
     <string name="alreadyHaveAnAccount">Already have an Account</string>
     <string name="or">Or</string>
+    <string name="loginOut">LogOut</string>
+
+
+    // Error Msg
+    <string name="something_went_wrong">Something went wrong</string>
 </resources>
