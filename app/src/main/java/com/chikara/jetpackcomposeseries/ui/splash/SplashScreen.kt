@@ -12,16 +12,28 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import com.chikara.jetpackcomposeseries.R
 import com.chikara.jetpackcomposeseries.ui.arguments.MainActivityArgument
 import com.chikara.jetpackcomposeseries.ui.navigation.NavRoutes
+import com.chikara.jetpackcomposeseries.ui.theme.AppTypography
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(navController: NavController) {
     val scale = remember { Animatable(0.1f) }
     val statusBarColor = colorResource(R.color.purple_100)
+    val systemUiController = rememberSystemUiController()
+
+    // ✅ Change the system status bar color
+    LaunchedEffect(Unit) {
+        systemUiController.setStatusBarColor(
+            color = statusBarColor,
+            darkIcons = true // set false if your background is dark
+        )
+    }
 
     LaunchedEffect(Unit) {
         scale.animateTo(
@@ -30,11 +42,15 @@ fun SplashScreen(navController: NavController) {
         )
         delay(1000)
 
-        // Navigate to Main screen with empty argument safely
-        val emptyArg = MainActivityArgument(userId = "sdsd", name = "sdsdsd")
-        navController.navigate(NavRoutes.MainActivityScreen.createRoute(emptyArg)) {
-            popUpTo(NavRoutes.SplashScreen.route) { inclusive = true }
+        navController.navigate(NavRoutes.LoginScreen.route) {
+//            popUpTo(NavRoutes.SplashScreen.route) { inclusive = true }
         }
+
+
+//        val mainActivityArgument = MainActivityArgument(userId = "chikara007", name = "Chikara")
+//        navController.navigate(NavRoutes.MainActivityScreen.createRoute(mainActivityArgument)) {
+//            popUpTo(NavRoutes.SplashScreen.route) { inclusive = true }
+//        }
     }
 
     Box(
@@ -45,7 +61,8 @@ fun SplashScreen(navController: NavController) {
     ) {
         Text(
             text = "Jetpack Compose Series",
-            color = colorResource(R.color.purple_700)
+            color = colorResource(R.color.purple_700),
+            style = AppTypography.headlineMedium[30]!!
         )
     }
 }

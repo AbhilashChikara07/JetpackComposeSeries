@@ -25,7 +25,7 @@ val OutfitFontFamily = FontFamily(
 )
 
 // List of font sizes you want
-val fontSizes = listOf(12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44)
+val fontSizes = listOf(8, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44)
 
 // Base font weights for each TextStyle
 val baseWeights = mapOf(
