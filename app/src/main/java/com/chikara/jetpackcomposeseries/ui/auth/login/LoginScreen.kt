@@ -121,30 +121,27 @@ fun LoginScreen(
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 16.dp)
         )
-
-        // Show loading indicator
+        //             Show loading indicator
         if (authState is AuthState.Loading) {
             LoadingIndicator()
         }
 
         // Handle Auth State Changes
-        when (authState) {
-            is AuthState.Authenticated -> {
-                LaunchedEffect(Unit) {
+        LaunchedEffect(authState) {
+            when (authState) {
+                is AuthState.Authenticated -> {
                     navController?.navigate(NavRoutes.HomeScreen.route) {
                         popUpTo(NavRoutes.SignupScreen.route) { inclusive = true }
                     }
                 }
-            }
 
-            is AuthState.onError -> {
-                val errorMsg = (authState as AuthState.onError).error
-                LaunchedEffect(errorMsg) {
+                is AuthState.onError -> {
+                    val errorMsg = (authState as AuthState.onError).error
                     snackBarHostState.showSnackbar(message = errorMsg)
                 }
-            }
 
-            else -> {}
+                else -> {}
+            }
         }
     }
 }

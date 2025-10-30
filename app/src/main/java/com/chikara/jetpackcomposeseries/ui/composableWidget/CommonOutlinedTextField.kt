@@ -39,8 +39,8 @@ fun CommonOutlinedTextField(
             focusedContainerColor = statusBarColor,
             unfocusedContainerColor = statusBarColor,
             focusedLabelColor = colorResource(R.color.purple_400),
-            unfocusedLabelColor = colorResource(R.color.gray_400),
             focusedTextColor = colorResource(R.color.purple_400),
+            unfocusedTextColor = colorResource(R.color.purple_400)
         ),
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
