@@ -126,23 +126,22 @@ fun SignupScreen(
         }
 
         // Handle Auth State Changes
-        when (authState) {
-            is AuthState.Authenticated -> {
-                LaunchedEffect(Unit) {
+        LaunchedEffect(authState) {
+            when (authState) {
+                is AuthState.Authenticated -> {
                     navController?.navigate(NavRoutes.HomeScreen.route) {
                         popUpTo(NavRoutes.SignupScreen.route) { inclusive = true }
                     }
                 }
-            }
 
-            is AuthState.onError -> {
-                val errorMsg = (authState as AuthState.onError).error
-                LaunchedEffect(errorMsg) {
+                is AuthState.onError -> {
+                    val errorMsg = (authState as AuthState.onError).error
                     snackbarHostState.showSnackbar(message = errorMsg)
                 }
-            }
 
-            else -> {}
+                else -> {}
+            }
         }
+
     }
 }
