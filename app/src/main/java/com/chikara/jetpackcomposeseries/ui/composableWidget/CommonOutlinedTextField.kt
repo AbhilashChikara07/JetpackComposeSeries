@@ -33,6 +33,7 @@ fun CommonOutlinedTextField(
                 style = AppTypography.headlineMedium[14]!!
             )
         },
+
         colors = TextFieldDefaults.colors(
             focusedIndicatorColor = colorResource(R.color.purple_400),
             unfocusedIndicatorColor = colorResource(R.color.purple_400),
@@ -40,7 +41,8 @@ fun CommonOutlinedTextField(
             unfocusedContainerColor = statusBarColor,
             focusedLabelColor = colorResource(R.color.purple_400),
             focusedTextColor = colorResource(R.color.purple_400),
-            unfocusedTextColor = colorResource(R.color.purple_400)
+            unfocusedTextColor = colorResource(R.color.purple_400),
+            cursorColor = colorResource(R.color.purple_400)
         ),
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
