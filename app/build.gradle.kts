@@ -6,6 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"
 }
 
+
 android {
     namespace = "com.chikara.jetpackcomposeseries"
     compileSdk = 35

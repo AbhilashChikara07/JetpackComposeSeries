@@ -9,6 +9,7 @@
     <string name="alreadyHaveAnAccount">Already have an Account</string>
     <string name="or">Or</string>
     <string name="loginOut">LogOut</string>
+    <string name="api_key">eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMWI5MTNkMTk2YzViZjM0ZTg5MDFiMWEzY2M0Yjk1OSIsIm5iZiI6MTc2MTg4NzY0NS4zNTMsInN1YiI6IjY5MDQ0NTlkMGMwMTlhMGE5ZDQ2MzA3OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.2RSIs0U6QP_ZnLZrYXscL48GGdkvpuTqmw2QYWFO7IA</string>
 
 
     // Error Msg
