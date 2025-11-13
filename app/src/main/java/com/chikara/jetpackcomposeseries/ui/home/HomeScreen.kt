@@ -1,7 +1,6 @@
 package com.chikara.jetpackcomposeseries.ui.main
 
 import Chat
-import Home
 import More
 import android.app.Activity
 import androidx.activity.compose.BackHandler
@@ -23,6 +22,7 @@ import com.chikara.jetpackcomposeseries.R
 import com.chikara.jetpackcomposeseries.ui.auth.viewModel.AuthViewModel
 import com.chikara.jetpackcomposeseries.ui.common.BottomNavItemDataClass
 import com.chikara.jetpackcomposeseries.ui.common.CommonBottomNavigationBar
+import com.example.app.ui.movies.MoviesScreen
 
 @Composable
 fun HomeScreen(navController: NavController?, authViewModel: AuthViewModel?) {
@@ -32,7 +32,7 @@ fun HomeScreen(navController: NavController?, authViewModel: AuthViewModel?) {
     var selectedTab by remember { mutableStateOf(0) }
 
     val bottomItems = listOf(
-        BottomNavItemDataClass("Home", icon = Icons.Default.Home),
+        BottomNavItemDataClass("Movie", icon = Icons.Default.Home),
         BottomNavItemDataClass("Chat", icon = Icons.Default.Email),
         BottomNavItemDataClass("More", icon = Icons.Default.Settings)
     )
@@ -57,7 +57,7 @@ fun HomeScreen(navController: NavController?, authViewModel: AuthViewModel?) {
             contentAlignment = Alignment.Center
         ) {
             when (selectedTab) {
-                0 -> Home()
+                0 -> MoviesScreen()
                 1 -> Chat()
                 2 -> More(navController = navController, authViewModel = authViewModel)
             }

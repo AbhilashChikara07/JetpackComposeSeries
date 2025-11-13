@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.google.gms.google.services)
     id("kotlin-parcelize")
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"
+    id("kotlin-kapt")
 }
 
 
@@ -60,7 +61,7 @@ android {
 }
 
 dependencies {
-
+    // --- AndroidX Core + Compose ---
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -69,45 +70,46 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation("androidx.compose.material:material:1.5.0")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.32.0")
 
-    // Extra Kotlin
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
-
-    // Compose
-    implementation("androidx.compose.material:material:1.5.0")
-
-    // ✅ Compose + LiveData integration
+    // --- Lifecycle + ViewModel ---
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
     implementation("androidx.compose.runtime:runtime-livedata:1.5.0")
 
-    // Lifecycle
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-
-    // Navigation
+    // --- Navigation ---
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
-    // Networking (Retrofit + OkHttp)
+    // --- Networking (Retrofit + OkHttp) ---
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
-    // Coroutines
+    // --- Kotlin Coroutines ---
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
-    // ✅ Firebase
+    // --- Serialization ---
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+
+    // --- Glide (for Image Loading in Compose) ---
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
+
+    // --- Shimmer (for Loading Placeholders) ---
+    implementation("com.valentinilk.shimmer:compose-shimmer:1.3.1")
+
+    // --- Firebase (optional, from your config) ---
     implementation(libs.firebase.auth)
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
 
-    // Data Serializable
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-
-    // Debug
+    // --- Debug / Preview Tools ---
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     debugImplementation("androidx.compose.ui:ui-tooling:1.5.0")
