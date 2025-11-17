@@ -53,7 +53,7 @@ fun HomeScreen(navController: NavController?, authViewModel: AuthViewModel?) {
                 .fillMaxSize()
                 .background(statusBarColor)
                 .padding(paddingValues)
-                .padding(16.dp),
+                .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 0.dp),
             contentAlignment = Alignment.Center
         ) {
             when (selectedTab) {

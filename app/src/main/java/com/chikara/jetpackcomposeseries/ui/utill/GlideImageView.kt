@@ -41,7 +41,7 @@ fun GlideImageView(
     modifier: Modifier = Modifier,
     size: Dp = 100.dp,
     cornerRadius: Dp = 8.dp,
-    contentScale: ContentScale = ContentScale.Crop,
+    contentScale: ContentScale = ContentScale.FillBounds,
     shimmerColor: Color = MaterialTheme.colorScheme.surfaceVariant,
     backgroundColor: Color = MaterialTheme.colorScheme.surface,
 ) {
@@ -136,6 +136,18 @@ fun GlideImageView(
             }
 
             imageBitmap != null -> {
+
+                // 🔥 BACKGROUND LAYER — blurred + cropped image
+//                Image(
+//                    painter = BitmapPainter(imageBitmap!!),
+//                    contentDescription = null,
+//                    contentScale = ContentScale.Crop,
+//                    modifier = Modifier
+//                        .fillMaxSize()
+//                        .blur(24.dp)   // NOW WORKS
+//                )
+
+                // 🔥 FOREGROUND LAYER — sharp image with your passed contentScale
                 Image(
                     painter = BitmapPainter(imageBitmap!!),
                     contentDescription = "Loaded image",
